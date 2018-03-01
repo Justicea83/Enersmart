@@ -11,11 +11,11 @@
 		<div class="row">
 			<div class="col-md-6">
 				<label class="control-label">Region Name</label>
-				<input type="text" class="form-control" name="region-name" placeholder="Region name">
-			</div>
-			<div class="col-md-6">
-				<label class="control-label">Region Code</label>
-				<input type="number" class="form-control" name="region-number" placeholder="Region number">
+				<select name="region-name" id="selectRegion" class="form-control">
+					@foreach($regions as $region)
+                    <option class="region-id" value="{{$region->id}}" data-regionID="{{$region->id}}">{{$region->name}}</option>
+					@endforeach
+				</select>
 			</div>
 		</div>
 	</div>
@@ -24,11 +24,9 @@
 		<div class="row">
 			<div class="col-md-6">
 				<label class="control-label">District Name</label>
-				<input type="text" class="form-control" name="district-name" placeholder="District name">
-			</div>
-			<div class="col-md-6">
-				<label class="control-label">District Code</label>
-				<input type="number" class="form-control" name="district-number" placeholder="District number">
+				<select name="district-name" id="selectDistrict" class="form-control">
+					
+				</select>
 			</div>
 		</div>
 	</div>
@@ -68,6 +66,9 @@
 	</div>
 	
 </div>
+@stop
+@section('javascript')
+	<script src="{{asset('/js/app.js')}}"></script>
 @stop
 
 

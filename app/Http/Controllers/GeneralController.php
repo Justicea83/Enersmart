@@ -7,6 +7,9 @@ use App\User;
 use TCG\Voyager\Facades\Voyager;
 use Auth;
 use App\Zone;
+use App\Region;
+use App\District;
+use Session;
 class GeneralController extends Controller
 {
     public function login(){
@@ -15,8 +18,24 @@ class GeneralController extends Controller
     }
 
     public function zones(){
-        
-    	return view('vendor.voyager.zones');
+       if(isset($_Session['id'])){
+        $id = $_Session['id'];
+       }else{
+        $id = 1;
+       }
+        $regions = Region::all();
+        $districts = District::where('region_id',$id)->get();
+    	return view('vendor.voyager.zones',['regions'=>$regions,'districts'=>$districts]);
+    }
+    public function live(){
+        if(isset($_GET['id'])){
+        $id = $_GET['id'];
+       }else{
+        $id = 1;
+       }
+       $districts = District::where('region_id',$id)->get();
+       echo $districts;
+       
     }
 
     public function notifications(){

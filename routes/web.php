@@ -21,6 +21,10 @@ Route::group(['prefix' => 'user'], function () {
     	'uses'=>'GeneralController@zones',
     	'as'=>'user.zones',
     ]);
+    Route::get('/zones/live',[
+        'uses'=>'GeneralController@live',
+        'as'=>'user.live',
+    ]);
     
     Route::get('/notifications',[
     	'uses'=>'GeneralController@notifications',
