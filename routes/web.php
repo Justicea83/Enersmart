@@ -25,6 +25,18 @@ Route::group(['prefix' => 'user'], function () {
         'uses'=>'GeneralController@live',
         'as'=>'user.live',
     ]);
+       Route::get('/zones/live/regiondata',[
+        'uses'=>'GeneralController@region',
+        'as'=>'user.regiondata',
+    ]);
+       Route::get('/zones/live/rounddata',[
+        'uses'=>'GeneralController@round',
+        'as'=>'user.rounddata',
+    ]);
+       Route::get('/zones/live/plotdata',[
+        'uses'=>'GeneralController@plot',
+        'as'=>'user.plotdata',
+    ]);
     
     Route::get('/notifications',[
     	'uses'=>'GeneralController@notifications',
@@ -34,8 +46,20 @@ Route::group(['prefix' => 'user'], function () {
         'uses'=>'GeneralController@survey',
         'as'=>'user.survey',
     ]);
-    Route::get('/survey/details/{id}',[
-        'uses'=>'GeneralController@zoneDetails',
-        'as'=>'user.zones.details',
+    Route::get('/survey/blocks/{id}',[
+        'uses'=>'GeneralController@zoneBlockDetails',
+        'as'=>'user.zones.block',
+    ]);
+    Route::get('/survey/blocks/rounds/{id}',[
+        'uses'=>'GeneralController@zoneRoundDetails',
+        'as'=>'user.zones.round',
+    ]);
+    Route::get('/survey/blocks/rounds/plots/{id}',[
+        'uses'=>'GeneralController@zonePlotDetails',
+        'as'=>'user.zones.plot',
+    ]);
+    Route::get('/survey/blocks/rounds/plots/plotdetails/{id}',[
+        'uses'=>'GeneralController@zonePlotDetailsOfPlot',
+        'as'=>'user.zones.plotdetails',
     ]);
 });

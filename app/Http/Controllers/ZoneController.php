@@ -7,36 +7,25 @@ use App\Zone;
 use App\User;
 use App\Notifications\ZoneNotification;
 use Notification;
+use App\Plot;
+use App\Round;
 class ZoneController extends Controller
 {
     public function submitZone(Request $request){
     	$this->validate($request,[
-    		'region-name'=>'required|max:20|min:3|Alpha',
-    		'region-number'=>'required|Numeric',
-    		'district-name'=>'required|max:20|min:3|Alpha',
-    		'district-number'=>'required|Numeric',
-    		'block-number'=>'required|Numeric',
-    		'round-number'=>'required|Numeric',
-    		'plot-number'=>'required|Numeric',
+    		'region-name'=>'required',
+    		'district-name'=>'required',
+            'block-name'=>'required',
+            'round-name'=>'required',
+    		'plot-code'=>'required',
     	]);
 
-    	$zone = new Zone;
-    	$region = $request['region-number'];
-    	$district = $request['district-number'];
-    	$block = $request['block-number'];
-    	$round = $request['round-number'];
-    	$plot = $request['plot-number'];
-    	$zone_plot = $region.'-'.$district.'-'.$block.'-'.$round.'-'.$plot;
-    	//
-    	$zone->region_name = $request['region-name'];
-    	$zone->region_number = $region;
-    	$zone->district_name = $request['district-name']; //
-    	$zone->district_number = $district;
-    	$zone->block_number =  $block;
-    	$zone->round_number =  $round;
-    	$zone->plot_number = $plot;
-    	$zone->plot = $zone_plot;
-
+    	$zone = new Plot;
+    	$plot = $request['plot-code'];
+        $name = $request['round-name'];
+        $zone->name = $plot;
+        $round_id = Round::where('name',$name)->first();
+        $zone->round_id = $round_id->id;
     	$zone->save();
 
         $users = User::where('role_id', 1)->get();

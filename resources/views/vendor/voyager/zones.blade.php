@@ -36,7 +36,9 @@
 			
 			<div class="col-md-12">
 				<label class="control-label">Block Code</label>
-				<input type="number" class="form-control" name="block-number" placeholder="Block number">
+				<select name="block-name" id="blockId" name="block-number" class="form-control">
+					
+				</select>
 			</div>
 		</div>
 	</div>
@@ -45,7 +47,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<label class="control-label">Round Code</label>
-				<input type="number" class="form-control" name="round-number" placeholder="Round number">
+				<select name="round-name" id="roundId" class="form-control">
+					
+				</select>
 			</div>
 		</div>
 	</div>
@@ -54,8 +58,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<label class="control-label">Plot Code</label>
-				<input type="number" class="form-control" name="plot-number" placeholder="Plot number">
-			</div>
+				<select name="plot-code" id="plotId"  class="form-control">
+					
+				</select>
 		</div>
 	</div>
 

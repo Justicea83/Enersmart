@@ -9,4 +9,7 @@ class Round extends Model
     public function plots(){
         return $this->hasMany('App\Plot');
     }
+    public function block(){
+    	return $this->belongsTo('App\Block');
+    }
 }

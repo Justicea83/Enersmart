@@ -1,5 +1,19 @@
 /* desktop devices */
 @media screen and (min-width: 768px) {
+.plot-heading{
+	padding-top: 12px;
+}
+#panel{
+	margin: 15px 0 0 0;
+}
+.color-data{
+	color: green;
+	font-weight: bold;
+}
+.color-data-header{
+	font-weight: bold;
+}
+
 	.zone-header{
 		font-weight: bold;
 	}
@@ -27,6 +41,19 @@
 }
 /* mobile devices*/
 @media screen and (max-width: 767px) {
+	.plot-heading{
+	padding-top: 12px;
+}
+#panel{
+	margin: 15px 0 0 0;
+}
+.color-data{
+	color: green;
+	font-weight: bold;
+}
+.color-data-header{
+	font-weight: bold;
+}
 	#ZoneContainer{
 		display: inline;
 		float: left;
@@ -52,4 +79,3 @@
 	font-weight: bold;
 }
 }
-
