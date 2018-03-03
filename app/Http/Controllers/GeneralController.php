@@ -13,6 +13,7 @@ use App\Block;
 use Session;
 use App\Round;
 use App\Plot;
+use App\Role;
 class GeneralController extends Controller
 {
     public function login(){
@@ -108,6 +109,10 @@ class GeneralController extends Controller
 
       $districtId = $district->district->id;
       $region = District::find($districtId);
-      return view('vendor.voyager.plotdetails',['details'=>$details,'round'=>$round,'block'=>$block,'district'=>$district,'region'=>$region]);
+
+      //returning sub supervisor
+      $subSupervisor = User::where('role_id',6)->get();
+      $subId = Role::where('id',6)->first();
+      return view('vendor.voyager.plotdetails',['details'=>$details,'round'=>$round,'block'=>$block,'district'=>$district,'region'=>$region,'subs'=>$subSupervisor,'subId'=>$subId]);
     }
 }

@@ -1,6 +1,6 @@
 @extends('voyager::master')
 
-@section('page_title','survey - blocks')
+@section('page_title','Plot Details')
 
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
@@ -34,11 +34,50 @@
 				</table>
 			</div>
 			<div class="panel-footer">
-				<button class="btn btn-info btn-block">Assign</button>
+				<button class="btn btn-info btn-block" data-toggle="modal" data-target="#assign">Assign</button>
 			</div>
 		</div>
 		</div>
 		
+	</div>
+	<div class="modal" id="assign" tabindex="-1" aria-labelledby="modalLabel" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h3 class="text-center modal-title" id="modalLabel">Choose People to assign the plot</h3>
+				</div>
+				<div class="modal-body">
+					<table id="selection-table" class="table table-striped table-responsive">
+						<thead>
+							<tr>
+								<th></th>
+								<th>Name</th>
+								<th>E-mail</th>
+								<th>Role</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach($subs as $sub)
+							<tr data-id="{{ $sub->id }}">
+								<td class="text-center">
+									<input id="selected" type="checkbox" name="">
+								</td>
+								<td>{{ $sub->name }}</td>
+								<td>{{$sub->email}}</td>
+								<td>{{ $subId->display_name }}</td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<buttton class="btn btn-info" style="float: right;">Assign</buttton>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 @stop

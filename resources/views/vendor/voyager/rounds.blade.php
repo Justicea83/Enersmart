@@ -1,6 +1,6 @@
 @extends('voyager::master')
 
-@section('page_title','survey - blocks')
+@section('page_title','survey - rounds')
 
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
