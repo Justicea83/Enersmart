@@ -22,3 +22,19 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+//
+$factory->define(App\Report::class, function (Faker\Generator $faker) {
+	$id = 1;
+    return [
+        'customer_name' => $faker->name,
+        'user_id'=>$id,
+        'meter_no' => $faker->unique()->safeEmail,
+        'geo_code' => $faker->sentence(4),
+        'new_geo_code' => $faker->sentence(5),
+        'nearby_code' => $faker->sentence(5),
+        'tarrif' => $faker->sentence(4),
+        'remarks' => $faker->sentence(10),
+        
+    ];
+});

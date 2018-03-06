@@ -81,6 +81,24 @@
 			});
 		});
 	});
-
-	
-//region-id
+	//working on the selection table
+	$(function(){
+		$('#assign-button').on('click',function(){
+			var table = $('#selection-table input:checked');
+			
+			table.each(function(key){
+			 //var data[key] = value.data('id');
+			 var data = $(this);
+			 var id = data.data('id');
+		 $.ajax({
+			type:"GET",
+			url: '',
+			data:{sendId:id},
+			success:function(data){
+				console.log('successful');
+			},
+		});
+			});
+		});
+	});
+	$('#manageBrandTable').dataTable();

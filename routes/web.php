@@ -16,6 +16,19 @@ Route::get('/',[
 
 Route::group(['prefix' => 'user'], function () {
     Voyager::routes();
+    Route::get('/report',[
+        'uses'=>'ReportController@reports',
+        'as'=>'user.reports',
+    ]);
+    Route::post('/report/save',[
+        'uses'=>'ReportController@submitReport',
+        'as'=>'user.reports.save',
+    ]);
+    //
+    Route::get('/report/Daily',[
+        'uses'=>'ReportController@dailyReport',
+        'as'=>'user.reports.return',
+    ]);
 
     Route::get('/zones',[
     	'uses'=>'GeneralController@zones',
@@ -61,5 +74,9 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/survey/blocks/rounds/plots/plotdetails/{id}',[
         'uses'=>'GeneralController@zonePlotDetailsOfPlot',
         'as'=>'user.zones.plotdetails',
+    ]);
+    Route::get('/survey/blocks/rounds/plots/plotdetails/notify',[
+        'uses'=>'PlotController@sendNotification',
+        'as'=>'user.register.notify',
     ]);
 });

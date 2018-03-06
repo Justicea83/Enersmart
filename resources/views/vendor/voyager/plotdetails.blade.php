@@ -50,7 +50,7 @@
 					<h3 class="text-center modal-title" id="modalLabel">Choose People to assign the plot</h3>
 				</div>
 				<div class="modal-body">
-					<table id="selection-table" class="table table-striped table-responsive">
+					<table  class="table table-striped table-responsive">
 						<thead>
 							<tr>
 								<th></th>
@@ -59,11 +59,12 @@
 								<th>Role</th>
 							</tr>
 						</thead>
-						<tbody>
+						
+							<tbody id="selection-table">
 							@foreach($subs as $sub)
-							<tr data-id="{{ $sub->id }}">
+							<tr >
 								<td class="text-center">
-									<input id="selected" type="checkbox" name="">
+									<input class="selected" type="checkbox" data-id="{{ $sub->id }}" >
 								</td>
 								<td>{{ $sub->name }}</td>
 								<td>{{$sub->email}}</td>
@@ -71,11 +72,15 @@
 							</tr>
 							@endforeach
 						</tbody>
+						
 					</table>
 				</div>
 				<div class="modal-footer">
-					<buttton class="btn btn-info" style="float: right;">Assign</buttton>
+					<a href="{{ route('user.register.notify') }}">
+						<buttton class="btn btn-info" id="assign-button" style="float: right;" type="button">Assign</buttton>
+					</a>
 				</div>
+				<!-- -->
 			</div>
 		</div>
 	</div>

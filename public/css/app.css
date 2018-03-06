@@ -1,5 +1,8 @@
 /* desktop devices */
 @media screen and (min-width: 768px) {
+.align th{
+	margin: 0 0 0 -35px;
+}
 .plot-heading{
 	padding-top: 12px;
 }
