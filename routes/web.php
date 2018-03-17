@@ -12,6 +12,7 @@ Route::get('/',[
     'uses'=>'GeneralController@login',
     'as'=>'newlogin',
 ]);
+    
 });
 
 Route::group(['prefix' => 'user'], function () {
@@ -19,6 +20,10 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/report',[
         'uses'=>'ReportController@reports',
         'as'=>'user.reports',
+    ]);
+    Route::get('/notify',[
+        'uses'=>'PlotController@sendNotification',
+        'as'=>'user.register.notify',
     ]);
     Route::post('/report/save',[
         'uses'=>'ReportController@submitReport',
@@ -75,8 +80,7 @@ Route::group(['prefix' => 'user'], function () {
         'uses'=>'GeneralController@zonePlotDetailsOfPlot',
         'as'=>'user.zones.plotdetails',
     ]);
-    Route::get('/survey/blocks/rounds/plots/plotdetails/notify',[
-        'uses'=>'PlotController@sendNotification',
-        'as'=>'user.register.notify',
-    ]);
+
+
+    
 });

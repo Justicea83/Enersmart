@@ -115,4 +115,6 @@ class GeneralController extends Controller
       $subId = Role::where('id',6)->first();
       return view('vendor.voyager.plotdetails',['details'=>$details,'round'=>$round,'block'=>$block,'district'=>$district,'region'=>$region,'subs'=>$subSupervisor,'subId'=>$subId]);
     }
+
+
 }

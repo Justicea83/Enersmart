@@ -74,7 +74,6 @@
 				url: 'zones/live/plotdata',
 				data:{plot:plot},
 				success:function(data){
-				 console.log(data);
 				$('#plotId').append('<option>'+data+'</option>');
 				
 				},
@@ -82,23 +81,25 @@
 		});
 	});
 	//working on the selection table
+	$('#manageBrandTable').dataTable();
 	$(function(){
-		$('#assign-button').on('click',function(){
+		$('#assign-button').on('click',function(event){
+			//event.preventDefault();
 			var table = $('#selection-table input:checked');
-			
+			var ids = [];
 			table.each(function(key){
-			 //var data[key] = value.data('id');
 			 var data = $(this);
-			 var id = data.data('id');
-		 $.ajax({
+			 var id = data.val();
+			 ids.push(id);
+			});
+			$.ajax({
 			type:"GET",
-			url: '',
-			data:{sendId:id},
-			success:function(data){
-				console.log('successful');
+			url: 'notify',
+			data:{work: ids},
+			cache:false,
+			success:function(){
+				console.log(ids);
 			},
 		});
-			});
 		});
 	});
-	$('#manageBrandTable').dataTable();

@@ -64,7 +64,7 @@
 							@foreach($subs as $sub)
 							<tr >
 								<td class="text-center">
-									<input class="selected" type="checkbox" data-id="{{ $sub->id }}" >
+									<input class="selected" type="checkbox" value="{{ $sub->id }}" >
 								</td>
 								<td>{{ $sub->name }}</td>
 								<td>{{$sub->email}}</td>
@@ -76,11 +76,9 @@
 					</table>
 				</div>
 				<div class="modal-footer">
-					<a href="{{ route('user.register.notify') }}">
-						<buttton class="btn btn-info" id="assign-button" style="float: right;" type="button">Assign</buttton>
-					</a>
+					<a id="assign-button" href="{{ route('user.register.notify') }}" >
+						<button class="btn btn-info"  type="button">Assign</button>	
 				</div>
-				<!-- -->
 			</div>
 		</div>
 	</div>
